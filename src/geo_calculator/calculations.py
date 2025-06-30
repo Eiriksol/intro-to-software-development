@@ -15,9 +15,13 @@ def gardners_equation(velocity: float) -> float:
         velocity: float number
     Returns:
         The density
+    Raise: 
+        ValueError: In case a negative velocity is provided
     """
     alpha = 0.31
     beta = 0.25
+    if velocity < 0:
+        raise ValueError
     return alpha*(velocity**beta)
 
 def inverse_gardners_equation(density: float) -> float:
@@ -26,7 +30,11 @@ def inverse_gardners_equation(density: float) -> float:
         density: float number
     Returns:
         The velocity
+    Raise: 
+        ValueError: In case a negative density is provided
     """
     alpha = 0.31
     beta = 0.25
+    if density < 0:
+        raise ValueError
     return (density/alpha)**(1/beta)
