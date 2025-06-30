@@ -1,2 +1,2 @@
 def find_average(liste) -> float:
-    return sum(liste)/len(liste)
+    return sum(liste) / len(liste)
