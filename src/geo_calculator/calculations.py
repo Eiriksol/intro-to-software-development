@@ -11,4 +11,4 @@ def gardners_equation(velocity) -> float:
 def inverse_gardners_equation(density) -> float:
     alpha = 0.31
     beta = 0.25
-    return (density**(1/beta))/alpha
+    return (density/alpha)**(1/beta)
