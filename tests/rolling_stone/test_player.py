@@ -1,4 +1,4 @@
-from geo_calculator.rolling_stone.player import Player
+from geo_calculator.rolling_stone.player import Player, InvalidPlayerNameException
 import pytest
 
 @pytest.fixture
@@ -42,3 +42,22 @@ def test_input_name_for_player(mocker, new_player):
 
     # Assert
     assert new_player.name == TEST_NAME
+
+@pytest.mark.parametrize(
+    "invalid_name, exception_match_string",
+    [
+        ("", "Name must have at least one character"),
+        ("123456789", "Name can only contain alphabetic characters and spaces"),
+        ("NameWith@Symbol", "Name can only contain alphabetic characters and spaces"),
+        ("Name With Too  Many   Spaces", "Name cannot have multiple spaces in a row"),
+    ],
+)
+def test_input_invalid_name_for_player(
+    mocker, new_player, invalid_name, exception_match_string
+):
+    mocker.patch.object(
+        Player, "_get_name_for_player_from_input", return_value=invalid_name
+    )
+    with pytest.raises(InvalidPlayerNameException, match=exception_match_string):
+        new_player.prompt_for_name()
+    assert new_player.name is None
