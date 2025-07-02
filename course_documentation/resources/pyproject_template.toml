@@ -11,7 +11,7 @@ description = "Introduction to Software Development course and demo Python packa
 readme = "README.md"
 requires-python = ">=3.13"
 license = { file = "LICENSE" }
-dependencies = ["numpy"]
+dependencies = ["numpy", "regex"]
 dynamic = ["version"]
 
 [project.urls]
