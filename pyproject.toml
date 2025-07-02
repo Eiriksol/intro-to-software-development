@@ -16,4 +16,4 @@ dynamic = ["version"]
 repository = "https://github.com/Eiriksol/intro-to-software-development"
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-mock"]
+dev = ["pytest", "pytest-mock", "regex"]
