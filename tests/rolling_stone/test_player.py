@@ -1,13 +1,16 @@
 from geo_calculator.rolling_stone.player import Player, InvalidPlayerNameException
 import pytest
 
+
 @pytest.fixture
 def new_player():
     return Player()
 
+
 def test_player(new_player):
     player = Player()
     assert isinstance(new_player, Player)
+
 
 def test_player_receive_score():
     # Arrange
@@ -23,6 +26,7 @@ def test_player_receive_score():
     player.receive_score(RECEIVED_SCORE)
     # Assert again
     assert player.score == 2 * RECEIVED_SCORE
+
 
 def test_player(new_player):
     assert isinstance(new_player, Player)
@@ -42,6 +46,7 @@ def test_input_name_for_player(mocker, new_player):
 
     # Assert
     assert new_player.name == TEST_NAME
+
 
 @pytest.mark.parametrize(
     "invalid_name, exception_match_string",

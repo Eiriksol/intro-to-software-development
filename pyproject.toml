@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "geo-calculator"
-authors = [{ name = "<Your name here>" }]
+authors = [{ name = "Eirik Solberg" }]
 description = "Introduction to Software Development course and demo Python package"
 readme = "README.md"
 requires-python = ">=3.13"

@@ -1,4 +1,8 @@
-from geo_calculator.calculations import find_average, gardners_equation, inverse_gardners_equation
+from geo_calculator.calculations import (
+    find_average,
+    gardners_equation,
+    inverse_gardners_equation,
+)
 import pytest
 
 
@@ -11,12 +15,14 @@ def test_find_average_of_list_of_numbers() -> None:
     test_list = [1, 2, 3, 4, 5, 6]
     assert find_average(test_list) == 3.5
 
+
 def test_gardners_equation():
     velocity = 2000  # m/s
     expected_density = 2.0730949  # g/cm3
 
     # By default, approx considers numbers within a relative tolerance of 1e-6
     assert gardners_equation(velocity) == pytest.approx(expected_density)
+
 
 def test_inverse_gardners_equation() -> None:
     density = 2.0730949  # g/cm3
@@ -31,6 +37,7 @@ def test_inverse_gardners_equation() -> None:
     assert gardners_equation(inverse_gardners_equation(density)) == pytest.approx(
         density
     )
+
 
 def test_gardners_equation_negative_velocity() -> None:
     velocity = -1000  # m/s
